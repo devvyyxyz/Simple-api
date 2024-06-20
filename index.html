@@ -4,23 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple API</title>
-    <script>
-        function displayMessage() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const name = urlParams.get('name');
-            const message = urlParams.get('message');
-            
-            if (name && message) {
-                const responseMessage = `Hello ${name}, you have received a message: ${message}`;
-                document.getElementById('output').innerText = responseMessage;
-            } else {
-                document.getElementById('output').innerText = 'Please provide both name and message parameters in the URL.';
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="styles/main.css">
+    <script defer src="scripts/main.js"></script>
 </head>
-<body onload="displayMessage()">
+<body>
     <h1>Simple API</h1>
-    <div id="output"></div>
+    <div id="json-response" class="code"></div>
+    <h2>Available Endpoints</h2>
+    <div class="endpoint">
+        <strong>GET /</strong><br>
+        This endpoint displays the home page and lists all possible endpoints.
+    </div>
+    <div class="endpoint">
+        <strong>GET /?name=<span class="code">&lt;name&gt;</span>&message=<span class="code">&lt;message&gt;</span></strong><br>
+        This endpoint returns a JSON response with a personalized message.<br>
+        <em>Example:</em> <a href="?name=John&message=Welcome%20to%20our%20site">/?name=John&message=Welcome%20to%20our%20site</a>
+    </div>
 </body>
 </html>
