@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple API</title>
+    <script>
+        function displayMessage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const message = urlParams.get('message');
+            
+            if (name && message) {
+                const responseMessage = `Hello ${name}, you have received a message: ${message}`;
+                document.getElementById('output').innerText = responseMessage;
+            } else {
+                document.getElementById('output').innerText = 'Please provide both name and message parameters in the URL.';
+            }
+        }
+    </script>
+</head>
+<body onload="displayMessage()">
+    <h1>Simple API</h1>
+    <div id="output"></div>
+</body>
+</html>
